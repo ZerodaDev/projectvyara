@@ -4,34 +4,13 @@ body {
     font-family: 'Source Sans Pro', Arial, sans-serif;
     background-color: #F8D1DA;
     color: #D06F8B;
+    overflow-x: hidden;
+    opacity: 0; /* Starting state for loading */
+    transition: opacity 1s ease-in-out; /* Page loading transition */
 }
 
-/* Loading Animation */
-.loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.8);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.spinner {
-    border: 8px solid rgba(255, 255, 255, 0.3);
-    border-top: 8px solid #D06F8B;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+body.loaded {
+    opacity: 1; /* Final state after loading */
 }
 
 /* Navbar */
@@ -42,8 +21,17 @@ body {
     background-color: #F8D1DA;
     padding: 15px 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Hidden initially */
+    transform: translateY(-50px); /* Slides down from top */
+    transition: opacity 1.5s ease-in-out 0.5s, transform 1.5s ease-in-out 0.5s; /* Delayed fade-in */
 }
 
+.loaded .navbar {
+    opacity: 1; /* Final state */
+    transform: translateY(0);
+}
+
+/* Logo */
 .logo-container {
     display: flex;
     align-items: center;
@@ -54,6 +42,14 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    opacity: 0; /* Hidden initially */
+    transform: scale(0.8); /* Starts scaled down */
+    transition: opacity 1.5s ease-in-out 0.8s, transform 1.5s ease-in-out 0.8s; /* Smooth transition */
+}
+
+.loaded .logo-img {
+    opacity: 1; /* Final state */
+    transform: scale(1); /* Normal size */
 }
 
 .project-name {
@@ -61,87 +57,61 @@ body {
     font-size: 24px;
     font-weight: bold;
     font-variant: small-caps;
+    text-transform: lowercase;
     color: #D06F8B;
 }
 
-/* Navbar Links */
+/* Navigation Links */
 .nav-links {
-    display: none; /* Hidden by default */
-}
-
-.nav-links ul {
+    list-style: none;
     display: flex;
     gap: 20px;
-    padding: 0; /* Remove padding */
-    list-style-type: none; /* Remove bullets */
+}
+
+.nav-links li {
+    position: relative;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #D06F8B;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
-    position: relative; /* For animation */
+    transition: color 0.3s, background-color 0.3s, padding 0.3s, box-shadow 0.3s;
 }
 
+/* Underline effect for Desktop Links */
 .nav-links a::after {
     content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px; /* Position of the line */
-    height: 2px;
+    display: block;
     width: 0;
-    background-color: #D06F8B;
+    height: 2px;
+    background: #D06F8B;
     transition: width 0.3s;
 }
 
 .nav-links a:hover::after {
-    width: 100%; /* Expand the line on hover */
-}
-
-/* Hamburger Menu Button Styles */
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.hamburger-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 20px; /* Adjust height as needed */
-}
-
-.line {
-    height: 3px; /* Thickness of the lines */
-    width: 25px; /* Length of the lines */
-    background-color: #D06F8B; /* Color of the lines */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
-}
-
-.menu-toggle:hover .line {
-    background-color: #8B004B; /* Change color on hover */
+    width: 100%;
 }
 
 /* Side Menu Styles */
 .side-menu {
     position: fixed;
     top: 0;
-    left: -250px; /* Hidden by default */
-    width: 250px;
+    left: -100%; /* Hidden initially */
+    width: 60%; /* Covers 60% of the screen */
     height: 100%;
     background-color: #F8D1DA;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    transition: left 0.3s ease;
+    transition: left 0.8s ease-in-out; /* Smooth slide-in */
     z-index: 1000;
 }
 
 .side-menu.open {
-    left: 0; /* Show menu */
+    left: 0; /* Slide-in to show */
 }
 
-.close-menu {
+.side-menu .close-menu {
     background: none;
     border: none;
     font-size: 24px;
@@ -150,32 +120,34 @@ body {
     margin: 15px;
 }
 
-/* Side Menu Links */
 .side-nav-links {
     list-style: none;
     padding: 0;
-    margin-top: 40px; /* Space from the close button */
 }
 
 .side-nav-links li {
     margin: 15px 0;
 }
 
+/* Button style for Mobile Side Nav Links */
 .side-nav-links a {
-    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border-radius: 8px;
     color: #D06F8B;
-    font-weight: 600;
-    display: block; /* Make entire area clickable */
-    padding: 10px 15px; /* Add padding for better clickability */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Button Hover Effect */
 .side-nav-links a:hover {
-    background-color: #D06F8B; /* Highlight on hover */
-    color: #FFFFFF; /* Change text color on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    background-color: #D06F8B;
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.side-nav-links a:active {
+    background-color: #C54A6B;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Hero Section */
@@ -186,6 +158,14 @@ body {
     height: 400px;
     background-color: #F8D1DA;
     text-align: center;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(50px); /* Starts sliding up */
+    transition: opacity 1.8s ease 0.7s, transform 1.8s ease 0.7s; /* Smooth delayed fade-in */
+}
+
+.loaded .hero {
+    opacity: 1; /* Final state */
+    transform: translateY(0);
 }
 
 .hero-logo-container {
@@ -198,6 +178,14 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    opacity: 0; /* Hidden initially */
+    transform: scale(0.8); /* Starts scaled down */
+    transition: opacity 1.5s ease-in-out 1s, transform 1.5s ease-in-out 1s; /* Smooth transition */
+}
+
+.loaded .hero-logo {
+    opacity: 1; /* Final state */
+    transform: scale(1); /* Normal size */
 }
 
 .hero h1 {
@@ -211,6 +199,14 @@ body {
     font-size: 18px;
     color: #D06F8B;
     margin-top: 10px;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(30px); /* Starts sliding up */
+    transition: opacity 1.5s ease-in-out 1.2s, transform 1.5s ease-in-out 1.2s; /* Delayed entry */
+}
+
+.loaded .hero p {
+    opacity: 1; /* Final state */
+    transform: translateY(0);
 }
 
 /* Footer */
@@ -219,30 +215,45 @@ body {
     padding: 20px;
     text-align: center;
     color: #F8D1DA;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(50px); /* Starts sliding up */
+    transition: opacity 1.5s ease-in-out 1.5s, transform 1.5s ease-in-out 1.5s; /* Delayed entry */
 }
 
-.footer .social-icons img {
-    width: 30px;
-    margin: 0 10px;
+.loaded .footer {
+    opacity: 1; /* Final state */
+    transform: translateY(0);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #D06F8B;
+    cursor: pointer;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Hide navbar links on mobile */
+        display: none; /* Hides desktop links on mobile */
     }
 
     .menu-toggle {
-        display: block; /* Show menu toggle button */
+        display: block; /* Shows menu toggle button on mobile */
+    }
+
+    .side-menu {
+        width: 60%; /* Menu covers 60% of screen */
     }
 }
 
-@media (min-width: 769px) {
-    .nav-links {
-        display: flex; /* Show navbar links on larger screens */
-    }
 
-    .menu-toggle {
-        display: none; /* Hide menu toggle button */
-    }
+/* Instagram Logo */
+.social-icons img {
+    width: 30px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px;
 }
