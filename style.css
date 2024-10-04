@@ -36,6 +36,22 @@ body {
     color: #D06F8B;
 }
 
+/* Navbar Links */
+.nav-links {
+    display: none; /* Hidden by default */
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #D06F8B;
+    font-weight: 600;
+}
+
 /* Hamburger Menu Button Styles */
 .menu-toggle {
     background: none;
@@ -171,5 +187,19 @@ body {
 @media (max-width: 768px) {
     .nav-links {
         display: none; /* Hide navbar links on mobile */
+    }
+
+    .menu-toggle {
+        display: block; /* Show menu toggle button */
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex; /* Show navbar links on larger screens */
+    }
+
+    .menu-toggle {
+        display: none; /* Hide menu toggle button */
     }
 }
