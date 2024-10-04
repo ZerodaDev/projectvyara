@@ -1,20 +1,15 @@
 // script.js
+
 const menuToggle = document.querySelector('.menu-toggle');
 const sideMenu = document.querySelector('.side-menu');
 const closeMenuButton = document.querySelector('.close-menu');
-const loadingOverlay = document.querySelector('.loading-overlay');
 
-// Show loading animation when the page loads
-window.addEventListener('load', () => {
-    loadingOverlay.style.display = 'none'; // Hide loading overlay
-});
-
-// Function to open/close the side menu
+// Function to open the side menu
 menuToggle.addEventListener('click', () => {
-    sideMenu.classList.toggle('open'); // Toggle open class
+    sideMenu.classList.toggle('open');
 });
 
-// Function to close the side menu with the close button
+// Function to close the side menu
 closeMenuButton.addEventListener('click', () => {
     sideMenu.classList.remove('open');
 });
@@ -24,4 +19,9 @@ document.addEventListener('click', (event) => {
     if (sideMenu.classList.contains('open') && !sideMenu.contains(event.target) && !menuToggle.contains(event.target)) {
         sideMenu.classList.remove('open');
     }
+});
+
+// Page load animation
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
 });
