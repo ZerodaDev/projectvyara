@@ -9,12 +9,12 @@ window.addEventListener('load', () => {
     loadingOverlay.style.display = 'none'; // Hide loading overlay
 });
 
-// Function to open the side menu
+// Function to open/close the side menu
 menuToggle.addEventListener('click', () => {
-    sideMenu.classList.add('open');
+    sideMenu.classList.toggle('open'); // Toggle open class
 });
 
-// Function to close the side menu
+// Function to close the side menu with the close button
 closeMenuButton.addEventListener('click', () => {
     sideMenu.classList.remove('open');
 });
