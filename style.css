@@ -62,6 +62,10 @@ body {
     margin: 15px;
 }
 
+.close-menu:hover {
+    color: #8B004B; /* Darker color on hover */
+}
+
 .side-nav-links {
     list-style: none;
     padding: 0;
@@ -78,12 +82,15 @@ body {
     font-weight: 600;
     display: block; /* Make entire area clickable */
     padding: 10px 15px; /* Add padding for better clickability */
-    transition: background-color 0.3s;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
+/* Button Hover Effect */
 .side-nav-links a:hover {
     background-color: #D06F8B; /* Highlight on hover */
     color: #FFFFFF; /* Change text color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
 }
 
 /* Hero Section */
