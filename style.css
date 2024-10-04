@@ -150,10 +150,7 @@ body {
     margin: 15px;
 }
 
-.close-menu:hover {
-    color: #8B004B; /* Darker color on hover */
-}
-
+/* Side Menu Links */
 .side-nav-links {
     list-style: none;
     padding: 0;
