@@ -2,6 +2,12 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const sideMenu = document.querySelector('.side-menu');
 const closeMenuButton = document.querySelector('.close-menu');
+const loadingOverlay = document.querySelector('.loading-overlay');
+
+// Show loading animation when the page loads
+window.addEventListener('load', () => {
+    loadingOverlay.style.display = 'none'; // Hide loading overlay
+});
 
 // Function to open the side menu
 menuToggle.addEventListener('click', () => {
