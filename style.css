@@ -1,15 +1,17 @@
+/* General styles */
 body {
     margin: 0;
     font-family: 'Source Sans Pro', Arial, sans-serif;
-    background-color: #F8D1DA; /* Light Pink Background */
-    color: #D06F8B; /* Default Text Color */
+    background-color: #F8D1DA;
+    color: #D06F8B;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #F8D1DA; /* Light Pink */
+    background-color: #F8D1DA;
     padding: 15px 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -30,9 +32,9 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
     font-weight: bold;
-    font-variant: small-caps; /* Small Caps */
-    text-transform: lowercase; /* Ensures small-caps effect */
-    color: #D06F8B; /* Darker Pink */
+    font-variant: small-caps;
+    text-transform: lowercase;
+    color: #D06F8B;
 }
 
 .nav-links {
@@ -47,14 +49,14 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #D06F8B; /* Darker Pink */
+    color: #D06F8B;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #8B004B; /* Darkest Pink */
+    color: #8B004B;
 }
 
 .nav-links a::after {
@@ -76,7 +78,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 400px;
-    background-color: #F8D1DA; /* Light Pink Background */
+    background-color: #F8D1DA;
     text-align: center;
 }
 
@@ -95,7 +97,7 @@ body {
 .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: 36px;
-    color: #8B004B; /* Darkest Pink */
+    color: #8B004B;
 }
 
 .hero p {
@@ -107,13 +109,80 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #8B004B; /* Dark Pink */
+    background-color: #8B004B;
     padding: 20px;
     text-align: center;
-    color: #F8D1DA; /* Light Pink Text */
+    color: #F8D1DA;
 }
 
 .footer .social-icons img {
     width: 30px;
     margin: 0 10px;
+}
+
+/* Side Menu Styles */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #F8D1DA;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.side-menu.open {
+    left: 0; /* Show menu */
+}
+
+.side-menu .close-menu {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #D06F8B;
+    cursor: pointer;
+    margin: 15px;
+}
+
+.side-nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.side-nav-links li {
+    margin: 15px 0;
+}
+
+.side-nav-links a {
+    text-decoration: none;
+    color: #D06F8B;
+    font-weight: 600;
+}
+
+/* Mobile Styles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #D06F8B;
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide original navbar on mobile */
+    }
+
+    .menu-toggle {
+        display: block; /* Show menu toggle button */
+    }
+
+    .side-menu {
+        /* Ensures the side menu fits on mobile */
+        width: 100%;
+    }
 }
