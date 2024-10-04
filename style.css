@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    background-color: #F8D1DA; /* Light Pink Background */
+    color: #D06F8B; /* Default Text Color */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F8D1DA; /* Light Pink */
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: bold;
+    font-variant: small-caps; /* Small Caps */
+    text-transform: lowercase; /* Ensures small-caps effect */
+    color: #D06F8B; /* Darker Pink */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #D06F8B; /* Darker Pink */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #8B004B; /* Darkest Pink */
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #D06F8B;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    background-color: #F8D1DA; /* Light Pink Background */
+    text-align: center;
+}
+
+.hero-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #8B004B; /* Darkest Pink */
+}
+
+.hero p {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    color: #D06F8B;
+    margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #8B004B; /* Dark Pink */
+    padding: 20px;
+    text-align: center;
+    color: #F8D1DA; /* Light Pink Text */
+}
+
+.footer .social-icons img {
+    width: 30px;
+    margin: 0 10px;
+}
