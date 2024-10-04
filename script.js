@@ -1,5 +1,4 @@
 // script.js
-const menuToggle = document.querySelector('.menu-toggle');
 const sideMenu = document.querySelector('.side-menu');
 const closeMenuButton = document.querySelector('.close-menu');
 
