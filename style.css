@@ -36,6 +36,32 @@ body {
     color: #D06F8B;
 }
 
+/* Hamburger Menu Button Styles */
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px; /* Adjust height as needed */
+}
+
+.line {
+    height: 3px; /* Thickness of the lines */
+    width: 25px; /* Length of the lines */
+    background-color: #D06F8B; /* Color of the lines */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.menu-toggle:hover .line {
+    background-color: #8B004B; /* Change color on hover */
+}
+
 /* Side Menu Styles */
 .side-menu {
     position: fixed;
