@@ -10,33 +10,20 @@
 </head>
 <body>
 
-    <!-- Loading Animation -->
-    <div class="loading-overlay">
-        <div class="spinner"></div>
-    </div>
-
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo-container">
-            <img src="Images/logo.jpg" alt="Logo" class="logo-img">
+            <img src="images/logo.jpg" alt="Logo" class="logo-img" loading="lazy">
             <div class="project-name">ᴘʀᴏᴊᴇᴄᴛ ᴠʏᴀʀᴀ</div>
         </div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#blogs">Blogs</a></li>
-                <li><a href="#resources">Gallery</a></li>
-                <li><a href="#events">Seminar</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-        <button class="menu-toggle" aria-label="Toggle Menu">
-            <div class="hamburger-icon">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-        </button>
+        <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Side Menu -->
@@ -44,9 +31,9 @@
         <button class="close-menu" aria-label="Close Menu">&times;</button>
         <ul class="side-nav-links">
             <li><a href="#about">About Us</a></li>
-            <li><a href="#blogs">Blogs</a></li>
-            <li><a href="#resources">Gallery</a></li>
-            <li><a href="#events">Seminar</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#events">Events</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -54,7 +41,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-logo-container">
-            <img src="Images/logo.jpg" alt="Hero Logo" class="hero-logo">
+            <img src="images/logo.jpg" alt="Hero Logo" class="hero-logo" loading="lazy">
             <h1>Mental Health and Unity</h1>
             <p>Welcome to Project Vyara. Together, we strive for mental well-being and unity.</p>
         </div>
@@ -64,9 +51,12 @@
     <footer class="footer">
         <p>Follow us:</p>
         <div class="social-icons">
-            <a href="https://www.instagram.com/project_vyara/"><img src="Images/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.instagram.com/project_vyara/"><img src="images/instagram-icon.png" alt="Instagram" loading="lazy"></a>
         </div>
     </footer>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to Top">⬆️</button>
 
     <script src="script.js"></script>
 </body>
