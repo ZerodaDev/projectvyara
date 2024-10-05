@@ -56,9 +56,7 @@ body.loaded {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
     font-weight: bold;
-    font-variant: small-caps;
     text-transform: lowercase;
-    color: #D06F8B;
 }
 
 /* Navigation Links */
@@ -235,25 +233,89 @@ body.loaded {
     cursor: pointer;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Hides desktop links on mobile */
-    }
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    align-items: center; /* Center vertically */
+    margin: 10px 0; /* Add some margin */
+}
 
-    .menu-toggle {
-        display: block; /* Shows menu toggle button on mobile */
-    }
+.social-icon {
+    width: 35px; /* Set a smaller size for the icon */
+    height: 35px; /* Set a fixed height to maintain aspect ratio */
+    margin: 0 10px; /* Space between icons */
+    transition: transform 0.3s; /* Animation effect on hover */
+}
 
-    .side-menu {
-        width: 60%; /* Menu covers 60% of screen */
-    }
+.social-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Slideshow */
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slideshow-container {
+    display: flex;
+    transition: transform 1s ease; /* Smooth transition for container */
+}
+
+.slideshow-slide {
+    flex: 1 0 100%;
+    height: 400px; /* Adjust as needed */
+    background-color: #D06F8B; /* Background color for slides */
+    color: white;
+    font-size: 24px;
+    opacity: 0; /* Hidden initially */
+    transition: opacity 1s ease; /* Shorter opacity transition */
+    position: absolute; /* Position absolute for smooth transitions */
+    top: 0; /* Align slides */
+    left: 0; /* Align slides */
+    
+    /* Centering styles */
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text inside the slide */
+}
+
+.slideshow-slide.active {
+    opacity: 1; /* Fully visible */
+    position: relative; /* Allow normal flow for the active slide */
 }
 
 
-/* Instagram Logo */
-.social-icons img {
-    width: 30px; /* Adjust the size as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 10px;
+/* Arrow Styles */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    border: none;
+    border-radius: 20px; /* More rounded */
+    padding: 5px 10px; /* Thinner buttons */
+    cursor: pointer;
+    font-size: 18px; /* Smaller font size */
+    color: #D06F8B; /* Arrow color */
+    z-index: 10; /* Ensure arrows are above slides */
+    transition: background-color 0.3s;
+}
+
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Change background on hover */
+}
+
+.left-arrow {
+    left: 10px; /* Position left arrow */
+}
+
+.right-arrow {
+    right: 10px; /* Position right arrow */
 }
