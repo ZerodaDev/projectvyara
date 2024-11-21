@@ -41,13 +41,57 @@ body.loaded {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Menu Toggle (Hamburger) */
 .menu-toggle {
-    display: block; /* Show the menu toggle button */
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #4C3B57; /* Dark purple for the icon */
+    display: block; /* Ensure it's visible */
+    width: 30px; /* Width of the icon */
+    height: 20px; /* Height reserved for the three lines */
+    position: relative; /* For pseudo-elements positioning */
     cursor: pointer;
+}
+
+/* Hamburger lines */
+.menu-toggle span,
+.menu-toggle::before,
+.menu-toggle::after {
+    content: ""; /* Create the lines */
+    display: block; /* Render as block elements */
+    background-color: #4C3B57; /* Dark purple color */
+    height: 3px; /* Line thickness */
+    width: 100%; /* Full width of the button */
+    border-radius: 2px; /* Rounded edges for aesthetics */
+    transition: transform 0.3s, opacity 0.3s; /* Smooth animations */
+    position: absolute;
+    left: 0;
+}
+
+/* Middle line */
+.menu-toggle span {
+    top: 50%; /* Center the middle line */
+    transform: translateY(-50%);
+}
+
+/* Top line */
+.menu-toggle::before {
+    top: 0; /* Position at the top */
+}
+
+/* Bottom line */
+.menu-toggle::after {
+    bottom: 0; /* Position at the bottom */
+}
+
+/* Animation when menu is toggled open */
+.menu-toggle.open span {
+    opacity: 0; /* Hide the middle line */
+}
+
+.menu-toggle.open::before {
+    transform: translateY(10px) rotate(45deg); /* Rotate the top line */
+}
+
+.menu-toggle.open::after {
+    transform: translateY(-10px) rotate(-45deg); /* Rotate the bottom line */
 }
 
 /* Navigation Links */
