@@ -31,6 +31,118 @@ body.loaded {
     transform: translateY(0);
 }
 
+/* General styles for phone navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5D3E3; /* Pastel pink */
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle {
+    display: block; /* Show the menu toggle button */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #4C3B57; /* Dark purple for the icon */
+    cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: none; /* Hide by default for mobile */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute;
+    top: 60px; /* Position below the navbar */
+    left: 0;
+    background-color: #F5D3E3; /* Same background as navbar */
+    width: 100%; /* Full-width */
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Ensure above other elements */
+}
+
+.nav-links.open {
+    display: flex; /* Show when menu is open */
+}
+
+.nav-links li {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #E9B8D1; /* Subtle border */
+}
+
+.nav-links li:last-child {
+    border-bottom: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4C3B57; /* Dark purple */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #D2A9CC; /* Pastel purple hover effect */
+    color: #FFFFFF; /* White text on hover */
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+/* Close Button for Mobile Menu */
+.menu-toggle.close-menu {
+    background-color: transparent;
+    font-size: 24px;
+    color: #4C3B57; /* Dark purple */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* Navbar Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Rounded for aesthetic */
+}
+
+.project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: #8B004B; /* Deep purple for the brand name */
+    text-transform: capitalize;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links initially */
+        flex-direction: column; /* Vertical stack for mobile */
+    }
+
+    .nav-links.open {
+        display: flex; /* Show links when menu is toggled */
+    }
+
+    .menu-toggle {
+        display: block; /* Ensure toggle button is visible */
+    }
+}
+
+
 /* Logo */
 .logo-container {
     display: flex;
